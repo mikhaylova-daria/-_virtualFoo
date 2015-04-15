@@ -7,5 +7,6 @@ SOURCES += main.cpp
 QMAKE_CXXFLAGS += -std=c++11
 
 HEADERS += \
-    macrosBase.h
+    macrosBase.h \
+    macrosDerived.h
 

@@ -14,14 +14,17 @@
 #define END(className) };
 
 #define METHOD(className, nameFoo)\
-   this->vTable.insert(std::pair<std::string, void(*) (className*)> (#nameFoo, &nameFoo));
+    this->vTable.insert(std::pair<std::string, void(*) (className*)> (#nameFoo, &nameFoo));
 
 
 
 #define DECLARE_METHOD(className, fooName)\
-    void fooName (className* thisPoint) {\
-        std::cout<<#className<<" "<<#fooName<<std::endl;\
+    void fooName (className* thisPoint);
 
+
+#define IMPL_METHOD(className, fooName)\
+    void fooName (className* thisPoint) {\
+        std::cout<<#className<<"::"<<#fooName<<std::endl;
 
 #define VIRTUAL_CALL(objectPtr, fooName) \
     (*(objectPtr->vTable.at(#fooName)))(objectPtr);
