@@ -67,7 +67,7 @@ using namespace std;
 int main()
 {
     A* a =new B();
-
+    
     std::cout<<"Метод, определённый в базовом и непереопределённый в наследнике, вызванный от наследника:"<<std::endl;
     Derived d;
     VIRTUAL_CALL((&d), onlyBase);

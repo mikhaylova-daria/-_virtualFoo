@@ -10,3 +10,4 @@ HEADERS += \
     macrosBase.h \
     macrosDerived.h
 
+CONFIG += rtti_off

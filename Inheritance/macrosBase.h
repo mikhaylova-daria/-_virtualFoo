@@ -27,7 +27,12 @@
         std::cout<<#className<<"::"<<#fooName<<std::endl;
 
 #define VIRTUAL_CALL(objectPtr, fooName) \
-    (*(objectPtr->vTable.at(#fooName)))(objectPtr);
+    try {\
+        (*(objectPtr->vTable.at(#fooName)))(objectPtr);\
+    } catch(std::exception &e) {\
+        std::cerr<<"Method doesn't exist!!!"<<std::endl;\
+        throw (-1);\
+    }
 
 #define METHODS(className) className() {
 
